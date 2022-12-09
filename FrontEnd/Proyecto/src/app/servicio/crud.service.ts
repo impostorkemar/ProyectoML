@@ -10,7 +10,7 @@ import { Consulta } from './Consulta';
   providedIn: 'root'
 })
 export class CrudService {
-API:string = 'http://192.168.100.81:8000/';
+API:string = 'http://54.197.20.174/';
   constructor(private clienteHttp:HttpClient) { }
 
   private createRequestOptions() {
