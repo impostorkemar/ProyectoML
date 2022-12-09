@@ -1,0 +1,91 @@
+<div class="card">
+    <div class="card-header">
+        AGREGAR CONSULTA
+    </div>
+    <div class="card-body">
+        <form  ngNativeValidate [formGroup]="formularioDeConsulta" (ngSubmit)="enviarDatos()">
+                        
+            <div class="mb-3">
+                <label for="" class="form-label">INGRESE TEXTO</label>
+                <input required type="text"
+                [(ngModel)]="opcionSeleccionado" class="form-control" name="texto" formControlName="texto"  id="" aria-describedby="helpId" placeholder="Escribe el texto" required>
+            </div> 
+            
+
+            <div class="btn-group" role="group" aria-label="Button group name">
+                <button type="submit" class="btn btn-success">CONSUTAR</button>                                
+            </div>
+
+            <p [hidden]="opcionSeleccionado == ''">FRASE: {{ verSeleccion }}</p>
+
+        </form>
+        
+    </div>
+    <div class="card-body">
+        <form  (ngSubmit)="uploadDocument()">
+            <div class="Block"> 
+                <label id="lbl">SELECCIONAR ARCHIVO CON DOCUMENTOS SEPARADOS POR PUNTO Y COMAS </label> 
+                <input type='file' (change)="fileChanged($event)"> 
+            </div>
+            <div class="btn-group" role="group" aria-label="Button group name">
+                <button type="submit" class="btn btn-success">CONSUTAR</button>                            
+            </div>
+        </form>
+    </div>   
+
+    <div class="card-body" >
+        <h1> PORCENTAJE DE DISCRIMINACIÓN</h1>
+        <div class="table-responsive">            
+            <table class="table table-primary">                
+                <thead>
+                    <tr >
+                        <td scope="col" *ngFor="let cabecera of Cabeceras3; let iControl=index" class=""><strong>{{cabecera}}</strong></td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rows of Consultas3 ; let iControl=index" class="[ng-class]">
+                        <td *ngFor="let varB of Ejecuciones3; let iControl=index" class="">{{rows[varB]}}</td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>        
+    </div>
+    <div class="card-body" >
+        <h1> MATRIZ DE JACCARD</h1>
+        <div class="table-responsive">            
+            <table class="table table-primary">                
+                <thead>
+                    <tr >
+                        <td scope="col" *ngFor="let cabecera of Cabeceras; let iControl=index" class=""><strong>{{cabecera}}</strong></td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rows of Consultas ; let iControl=index" class="[ng-class]">
+                        <td *ngFor="let varB of Ejecuciones; let iControl=index" class="">{{rows[varB]}}</td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>        
+    </div>
+    <div class="card-body" >
+        <h1> MATRIZ DE COSENO</h1>
+        <div class="table-responsive">            
+            <table class="table table-primary">                
+                <thead>
+                    <tr >
+                        <td scope="col" *ngFor="let cabecera of Cabeceras2; let iControl=index" class=""><strong>{{cabecera}}</strong></td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rows of Consultas2 ; let iControl=index" class="[ng-class]">
+                        <td *ngFor="let varB of Ejecuciones2; let iControl=index" class="">{{rows[varB]}}</td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>        
+    </div>
+    
+</div>
